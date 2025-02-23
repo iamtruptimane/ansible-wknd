@@ -1,0 +1,12 @@
+---
+- name: Run script on remote server
+  hosts: webserver
+  become: true
+  tasks: 
+    - name: copy script to remote server
+      copy:
+        src: /etc/ansible/playbooks/script.sh
+        dest: /tmp/script.sh
+        mode: 0755
+    - name: execute the script
+      command: /tmp/script.sh

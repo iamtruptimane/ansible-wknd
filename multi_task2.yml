@@ -1,0 +1,12 @@
+---
+- name: create directory and file on localhost
+  hosts: localhost
+  tasks:
+    - name: create a directory
+      ansible.builtin.file:
+        path: /root/mydir
+        state: directory
+    - name: create a file within a directory
+      ansible.builtin.file:
+        path: /root/mydir/test.txt
+        state: touch

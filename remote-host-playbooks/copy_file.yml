@@ -1,0 +1,12 @@
+---
+- name: copy file to remote server
+  hosts: remote
+  become: true # run as a sudo/root
+  tasks:
+    - name: copy file from ansible server to remote server
+      copy:
+        src: /root/demo.txt
+        dest: /home/ec2-user/demo.txt
+        owner: root 
+        group: root 
+        mode: 0700
